@@ -27,7 +27,7 @@
   --warm: #facc15; --warm-bg: #352d0e; --warm-bd: #5c4d12;
   --hot: #f87171; --hot-bg: #3b1717; --hot-bd: #6b2626;
   --btn-ink: #fdba74;
-  --chart-a: #fb923c; --chart-b: #fdba74; --chart-fill: rgba(249, 115, 22, .25);
+  --chart-a: #fb923c; --chart-b: #fef3e2; --chart-fill: rgba(249, 115, 22, .25);
   --pill-hot: #c2410c;
   --shadow: 0 10px 30px rgba(0, 0, 0, .5);
 }

@@ -9,11 +9,34 @@ new MutationObserver(() => live.forEach((c) => c.restyle())).observe(document.do
   attributes: true, attributeFilter: ['data-theme'],
 });
 
-// series: [{ label, color?: cssVar, fill?: bool, dash?: bool }]
+// Dashed vertical lines with a small label, e.g. cooling-mode changes: [{ x: ts, label }]
+const markerPlugin = {
+  id: 'markers',
+  afterDatasetsDraw(chart) {
+    const list = chart.options.plugins.markers?.list ?? [];
+    const { ctx: g, chartArea: a, scales: { x } } = chart;
+    g.save();
+    g.strokeStyle = css('--stripe'); g.fillStyle = css('--muted'); g.setLineDash([4, 4]); g.lineWidth = 1.5;
+    g.font = '12px "Plus Jakarta Sans", sans-serif';
+    let lastPx = -Infinity; let row = 0;
+    for (const m of list) {
+      const px = x.getPixelForValue(m.x);
+      if (px < a.left || px > a.right) continue;
+      g.beginPath(); g.moveTo(px, a.top); g.lineTo(px, a.bottom); g.stroke();
+      row = px - lastPx < 110 ? row + 1 : 0; // stack labels of markers that are close together
+      lastPx = px;
+      g.fillText(m.label, Math.min(px + 6, a.right - g.measureText(m.label).width - 4), a.top + 14 + row * 15);
+    }
+    g.restore();
+  },
+};
+
+// series: [{ label, color?: cssVar, fill?: bool, dash?: bool, axis?: 'y' | 'y2', unit? }]
 export function areaChart(canvas, { series, yMax = null, yUnit = '', grid = true, spark = false, xRange = 60 }) {
   const chart = new window.Chart(canvas, {
     type: 'line',
-    data: { datasets: series.map((s) => ({ label: s.label, data: [], pointRadius: 0, borderWidth: spark ? 1.6 : 2, tension: 0.25, fill: s.fill ?? true, borderDash: s.dash ? [5, 4] : [] })) },
+    plugins: [markerPlugin],
+    data: { datasets: series.map((s) => ({ label: s.label, data: [], pointRadius: 0, borderWidth: spark ? 1.6 : 2, tension: 0.25, fill: s.fill ?? true, borderDash: s.dash ? [5, 4] : [], yAxisID: s.axis ?? 'y', unit: s.unit ?? yUnit })) },
     options: {
       animation: false,
       responsive: true,
@@ -27,13 +50,14 @@ export function areaChart(canvas, { series, yMax = null, yUnit = '', grid = true
           enabled: !spark,
           callbacks: {
             title: (items) => (items.length ? new Date(items[0].parsed.x * 1000).toLocaleTimeString() : ''),
-            label: (item) => ` ${item.dataset.label}: ${item.parsed.y.toFixed(1)}${yUnit}`,
+            label: (item) => ` ${item.dataset.label}: ${item.parsed.y.toFixed(item.dataset.unit === ' RPM' ? 0 : 1)}${item.dataset.unit}`,
           },
         },
       },
       scales: {
         x: { type: 'linear', display: !spark && grid, ticks: { display: false }, grid: { drawTicks: false }, border: { display: false } },
         y: { display: !spark && grid, min: 0, max: yMax ?? undefined, ticks: { display: false, maxTicksLimit: 5 }, grid: { drawTicks: false }, border: { display: false } },
+        ...(series.some((s) => s.axis === 'y2') ? { y2: { display: false, min: 0 } } : {}),
       },
     },
   });
@@ -59,6 +83,7 @@ export function areaChart(canvas, { series, yMax = null, yUnit = '', grid = true
       chart.options.scales.x.max = end;
       chart.update('none');
     },
+    setMarkers(list) { chart.options.plugins.markers = { list }; chart.update('none'); },
     setOnHero(onHero) { series.forEach((s) => { s.onHero = onHero; }); handle.restyle(); },
     destroy() { live.delete(handle); chart.destroy(); },
   };
