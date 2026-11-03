@@ -85,3 +85,25 @@ class FakePowerApi:
 
     def balanced_plan_active(self) -> bool:
         return self.balanced
+
+
+def seed_history(store, now: float, hours: int = 7) -> None:
+    """Give --fake a believable past: 7 h of temperatures, one alert and two mode changes."""
+    rng = random.Random(7)
+    start = now - hours * 3600
+    # hourly CPU averages that roughly match the dashboard mockup (cool, warm, hot, ...)
+    profile = [52, 70, 66, 86, 58, 54, 57, 60]
+    t = start
+    while t < now:
+        hour = int((t - start) // 3600)
+        cpu = profile[min(hour, len(profile) - 1)] + rng.uniform(-3, 3)
+        store.add_temps(t, [
+            Reading("cpu", "", "cpu", "temperature", cpu),
+            Reading("gpu0", "", "gpu0", "temperature", cpu - 10 + rng.uniform(-2, 2)),
+            Reading("ssd", "", "ssd", "temperature", 44 + rng.uniform(-1, 1)),
+        ])
+        t += 60
+    alert = store.alert_start("cpu", start + 3 * 3600 + 600, 91.0)
+    store.alert_end(alert, start + 3 * 3600 + 640)
+    store.log_cooling(start + 3 * 3600 + 630, "performance", "smart")
+    store.log_cooling(now - 120, "balanced", "app")
