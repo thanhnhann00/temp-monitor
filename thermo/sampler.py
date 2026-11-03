@@ -81,11 +81,12 @@ class Sampler:
         readings, usage = self._guard("reading sensors", self.sources.read, ([], {}))
         headline = mapping.headline_temps(readings)
 
-        mode = self._guard("reading cooling mode", lambda: self.cooling.poll(now), "unknown")
-        if self.cooling.changed_externally:
-            self.smart.on_manual_change(now)
-        if self._guard("smart cooling", lambda: self.smart.step(headline["cpu"], now)):
-            mode = self.cooling.mode()
+        with self.cooling.lock:  # a mode change from the API can't land between poll and step
+            mode = self._guard("reading cooling mode", lambda: self.cooling.poll(now), "unknown")
+            if self.cooling.changed_externally:
+                self.smart.on_manual_change(now)
+            if self._guard("smart cooling", lambda: self.smart.step(headline["cpu"], now)):
+                mode = self.cooling.mode()
 
         for r in readings:
             v = finite(r.value)

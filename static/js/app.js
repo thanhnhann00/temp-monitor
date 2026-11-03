@@ -201,8 +201,11 @@ async function boot() {
   [ctx.settings, ctx.status] = await Promise.all([api.get('/api/settings'), api.get('/api/status')]);
   applyTheme(resolveTheme(ctx.settings.theme));
   renderStatus();
-  window.addEventListener('hashchange', route);
-  await route();
+  // Routes run one at a time: a page always finishes mounting before the next route unmounts it,
+  // so no mount can start timers after its page is gone.
+  let routing = route();
+  window.addEventListener('hashchange', () => { routing = routing.then(route, route); });
+  await routing;
   const live = document.getElementById('live');
   stopStream = api.stream((snap) => {
     ctx.snapshot = snap;

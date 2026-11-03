@@ -12,8 +12,10 @@ let root; let ctx; let device = 'cpu'; let range = 60;
 let sparks = {}; let charts = []; let serverSeries = null; let pollTimer = null;
 const buf = {}; // device -> key -> [[ts, v]]
 let latest = null;
+let gen = 0; let rangeGen = 0;
 
 export async function mount(el, c, params) {
+  const my = ++gen;
   root = el; ctx = c;
   device = DEVICES.includes(params.get('device')) ? params.get('device') : 'cpu';
   root.classList.add('perf');
@@ -32,10 +34,12 @@ export async function mount(el, c, params) {
     sparks[d] = areaChart(root.querySelector(`[data-dev="${d}"] canvas`), { series: [{ label: TITLES[d] }], spark: true, yMax: d === 'wifi' ? null : 100 });
   }
   await prefill();
+  if (my !== gen) return;
   select(device);
 }
 
 export function unmount() {
+  gen++; rangeGen++;
   Object.values(sparks).forEach((s) => s.destroy());
   charts.forEach((c) => c.destroy());
   sparks = {}; charts = [];
@@ -65,15 +69,19 @@ function select(d) {
 
 async function setRange(r) {
   range = r;
+  const my = ++rangeGen; // a newer range click, device switch or unmount wins
   root.querySelectorAll('[data-range]').forEach((b) => b.classList.toggle('on', Number(b.dataset.range) === r));
   clearInterval(pollTimer);
   serverSeries = null;
   if (r > BUFFER_S) {
     const load = async () => {
-      serverSeries = await ctx.api.get(`/api/usage?device=${device}&range=${r}`).catch(() => null);
+      const series = await ctx.api.get(`/api/usage?device=${device}&range=${r}`).catch(() => null);
+      if (my !== rangeGen) return;
+      serverSeries = series;
       drawDetail();
     };
     await load();
+    if (my !== rangeGen) return;
     pollTimer = setInterval(load, 5000);
   }
   drawDetail();

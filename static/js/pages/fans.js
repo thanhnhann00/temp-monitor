@@ -13,8 +13,10 @@ let root; let ctx; let chart; let timers = [];
 let mode = null; let pending = null; let lastEvent = null;
 let maxRpm = {};
 let fanIds = '';
+let gen = 0;
 
 export async function mount(el, c) {
+  const my = ++gen;
   root = el; ctx = c;
   root.classList.add('fans');
   root.innerHTML = `
@@ -48,11 +50,13 @@ export async function mount(el, c) {
     yMax: 110, xRange: 300,
   });
   await Promise.all([loadSmart(), loadMode(), loadChart()]);
+  if (my !== gen) return;
   timers.push(setInterval(loadChart, 5000));
   onStatus(ctx.status);
 }
 
 export function unmount() {
+  gen++;
   timers.forEach(clearInterval);
   timers = [];
   chart?.destroy();
@@ -63,7 +67,7 @@ export function unmount() {
 async function loadMode() {
   const r = await ctx.api.get('/api/cooling/mode');
   mode = r.mode;
-  renderModes();
+  if (root) renderModes();
 }
 
 function renderModes() {
@@ -118,7 +122,7 @@ export function onStatus(status) {
 let smart = null;
 async function loadSmart() {
   smart = await ctx.api.get('/api/cooling/smart');
-  renderSmart();
+  if (root) renderSmart();
 }
 
 function renderSmart() {

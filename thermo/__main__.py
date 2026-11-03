@@ -126,7 +126,8 @@ def main(argv: list[str] | None = None) -> None:
     from thermo.server import create_app
 
     state = build_state(args)
-    server = uvicorn.Server(uvicorn.Config(create_app(state), host="127.0.0.1", port=port, log_level="warning"))
+    server = uvicorn.Server(uvicorn.Config(create_app(state), host="127.0.0.1", port=port, log_level="warning",
+                                                timeout_graceful_shutdown=2))
     state.request_quit = lambda: setattr(server, "should_exit", True)
 
     url = f"http://127.0.0.1:{port}/"
@@ -139,6 +140,7 @@ def main(argv: list[str] | None = None) -> None:
     try:
         server.run()
     finally:
+        state.stopping.set()
         state.sampler.stop()
 
 

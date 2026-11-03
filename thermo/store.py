@@ -84,6 +84,9 @@ class Store:
     def alert_end(self, alert_id: int, ts: float) -> None:
         self._exec("UPDATE alert_log SET ended = ? WHERE id = ?", (ts, alert_id))
 
+    def close_open_alerts(self, ts: float) -> int:
+        return self._exec("UPDATE alert_log SET ended = ? WHERE ended IS NULL", (ts,)).rowcount
+
     def alerts(self, limit: int = 10) -> list[dict]:
         rows = self._all("SELECT id, sensor_id, started, ended, peak FROM alert_log ORDER BY started DESC, id DESC "
                          "LIMIT ?", (limit,))

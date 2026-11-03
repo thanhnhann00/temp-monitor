@@ -7,9 +7,11 @@ const RANGES = [['1h', '1 hr', 3600], ['6h', '6 hr', 6 * 3600], ['24h', '24 hr',
 
 let root; let ctx; let chart; let timer = null;
 let range = '1h';
+let gen = 0;
 const visible = new Set(SENSORS.map(([k]) => k));
 
 export async function mount(el, c) {
+  const my = ++gen;
   root = el; ctx = c;
   root.classList.add('cols1');
   root.innerHTML = `
@@ -30,15 +32,17 @@ export async function mount(el, c) {
     draw();
   }));
   await load();
+  if (my !== gen) return;
   timer = setInterval(load, 30_000);
 }
 
-export function unmount() { clearInterval(timer); chart?.destroy(); chart = null; root = null; }
+export function unmount() { gen++; clearInterval(timer); chart?.destroy(); chart = null; root = null; }
 
 let data = {};
 async function load() {
   root.querySelectorAll('[data-range]').forEach((b) => b.classList.toggle('on', b.dataset.range === range));
   data = await ctx.api.get(`/api/history?range=${range}&sensors=${SENSORS.map(([k]) => k).join(',')}`);
+  if (!root) return;
   chart?.destroy();
   chart = areaChart(root.querySelector('#hist'), {
     series: SENSORS.map(([k, color]) => ({ label: sensorLabel(k), color, fill: false })),

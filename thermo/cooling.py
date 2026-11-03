@@ -67,7 +67,10 @@ class Cooling:
     def __init__(self, api: PowerApi, store: Store):
         self._api = api
         self._store = store
-        self._lock = threading.Lock()
+        # Re-entrant and public: the sampler holds it around poll()+SmartCooling.step(), the API around
+        # set_mode()+on_manual_change(), so neither can interleave with the other.
+        self.lock = threading.RLock()
+        self._lock = self.lock
         self._last: str | None = None
         self.changed_externally = False
 
@@ -88,8 +91,8 @@ class Cooling:
 
     def poll(self, now: float) -> str:
         """Current mode; logs an 'external' event when it changed outside the app."""
-        mode = self.mode()
         with self._lock:
+            mode = self.mode()
             self.changed_externally = self._last is not None and mode != self._last and mode != "unknown"
             if self.changed_externally:
                 self._store.log_cooling(now, mode, "external")

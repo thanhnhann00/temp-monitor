@@ -6,8 +6,10 @@ const SHORT_KEYS = new Set(['cpu', 'gpu0', 'gpu1', 'ssd']);
 
 let root; let ctx; let rows = []; let timer = null;
 let query = ''; let kind = '';
+let gen = 0;
 
 export async function mount(el, c, params) {
+  const my = ++gen;
   root = el; ctx = c;
   query = params.get('q') ?? '';
   document.getElementById('search').value = query;
@@ -25,10 +27,11 @@ export async function mount(el, c, params) {
   root.querySelector('#q').addEventListener('input', (e) => { query = e.target.value.trim(); render(); });
   root.querySelector('#kind').addEventListener('change', (e) => { kind = e.target.value; render(); });
   await load();
+  if (my !== gen) return;
   timer = setInterval(load, 2000);
 }
 
-export function unmount() { clearInterval(timer); root = null; }
+export function unmount() { gen++; clearInterval(timer); root = null; }
 
 export function onSearch(q) {
   query = q;

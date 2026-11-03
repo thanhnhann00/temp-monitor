@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "plus jakarta sans",
+        "createdAt": "2026-11-03T20:54:21.241Z",
+        "reason": "user approved the dashboard/performance/fans mockups and the spec (2026-11-03), which specify Plus Jakarta Sans"
+      }
+    ]
+  }
+}

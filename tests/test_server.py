@@ -178,3 +178,26 @@ def test_stream_sends_snapshot(env):
                 snap = json.loads(line[6:])
                 break
     assert "headline" in snap and snap["cooling_mode"] == "balanced"
+
+
+def test_stream_ends_when_stopping(env):
+    import threading
+
+    client, state, *_ = env
+    state.stopping.set()
+    done = threading.Event()
+
+    def read_all():
+        with client.stream("GET", "/api/stream") as r:
+            for _ in r.iter_lines():
+                pass
+        done.set()
+
+    threading.Thread(target=read_all, daemon=True).start()
+    assert done.wait(5), "SSE stream kept running after quit"
+
+
+def test_quit_sets_stopping(env):
+    client, state, *_ = env
+    client.post("/api/quit", headers=H)
+    assert state.stopping.is_set()

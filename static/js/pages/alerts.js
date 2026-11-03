@@ -26,6 +26,7 @@ export async function mount(el, c) {
   root.querySelector('#save').addEventListener('click', save);
   root.querySelector('#add').addEventListener('click', add);
   const [th, sensors] = await Promise.all([ctx.api.get('/api/alerts/thresholds'), ctx.api.get('/api/sensors')]);
+  if (!root) return;
   thresholds = th;
   names = Object.fromEntries(sensors.filter((s) => s.kind === 'temperature').map((s) => [s.id, `${s.name} · ${s.hardware}`]));
   renderThresholds();
@@ -78,6 +79,7 @@ async function save() {
 
 async function loadLog() {
   const log = await ctx.api.get('/api/alerts/log?limit=50');
+  if (!root) return;
   root.querySelector('#log-rows').innerHTML = log.length ? log.map((a) => `
     <tr><td>${esc(when(a.started))}</td><td>${esc(label(a.sensor_id))}</td><td class="num">${temp(a.peak)} °C</td>
       <td class="num">${isNum(a.ended) ? `${Math.max(1, Math.round(a.ended - a.started))} s` : 'ongoing'}</td></tr>`).join('')

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import logging
+import time
 from dataclasses import dataclass
 from typing import Protocol
 
@@ -42,15 +43,25 @@ class AlertEngine:
     HYSTERESIS_C = 3.0
     COOLDOWN_S = 300
 
-    def __init__(self, thresholds: list[Threshold], notifier: Notifier, store: Store):
+    def __init__(self, thresholds: list[Threshold], notifier: Notifier, store: Store, now: float | None = None):
         self._notifier = notifier
         self._store = store
         self._open: dict[str, int] = {}          # key -> alert_log id
         self._last_toast: dict[str, float] = {}  # key -> ts
-        self.set_thresholds(thresholds)
+        self._thresholds: dict[str, Threshold] = {}
+        # Rows left open by a previous run (crash, power loss) can never end on their own.
+        store.close_open_alerts(time.time() if now is None else now)
+        self.set_thresholds(thresholds, now)
 
-    def set_thresholds(self, thresholds: list[Threshold]) -> None:
+    def set_thresholds(self, thresholds: list[Threshold], now: float | None = None) -> None:
         self._thresholds = {t.key: t for t in thresholds}
+        for key in list(self._open):
+            t = self._thresholds.get(key)
+            if t is None or not t.enabled:
+                self._end(key, time.time() if now is None else now)
+
+    def _end(self, key: str, now: float) -> None:
+        self._store.alert_end(self._open.pop(key), now)
 
     @property
     def thresholds(self) -> list[Threshold]:
@@ -60,13 +71,14 @@ class AlertEngine:
         started = []
         for key, t in self._thresholds.items():
             value = finite(values.get(key))
-            if value is None:
-                continue
             alert_id = self._open.get(key)
+            if value is None:
+                if alert_id is not None:  # sensor went away (e.g. the dGPU fell asleep)
+                    self._end(key, now)
+                continue
             if alert_id is not None:
                 if not t.enabled or value < t.limit_c - self.HYSTERESIS_C:
-                    self._store.alert_end(alert_id, now)
-                    del self._open[key]
+                    self._end(key, now)
                 else:
                     self._store.alert_update(alert_id, value)
             elif t.enabled and value >= t.limit_c:

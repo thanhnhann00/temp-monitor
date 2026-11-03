@@ -11,10 +11,12 @@ const CARDS = [
 const SHORT_KEYS = new Set(['cpu', 'gpu0', 'gpu1', 'ssd']);
 
 let root; let ctx; let timers = [];
+let gen = 0; // bumped on every mount/unmount so a mount still awaiting can tell it's stale
 let max24 = {};
 const recent = {}; // key -> [[ts, v]] for the last ~60 s (trend arrows)
 
 export async function mount(el, c) {
+  const my = ++gen;
   root = el; ctx = c;
   root.classList.add('dash');
   root.innerHTML = `
@@ -47,17 +49,21 @@ export async function mount(el, c) {
   root.querySelector('[data-pause]').addEventListener('click', togglePause);
   root.querySelector('[data-stop]').addEventListener('click', () => ctx.confirmQuit());
   await Promise.all([loadPills(), loadMax(), loadAlert()]);
+  if (my !== gen) return; // navigated away while loading
   timers.push(setInterval(loadPills, 5 * 60_000), setInterval(loadAlert, 15_000), setInterval(loadMax, 5 * 60_000));
   renderTimer();
 }
 
 export function unmount() {
+  gen++;
   timers.forEach(clearInterval);
   timers = [];
+  root = null;
 }
 
 async function loadPills() {
-  pillChart(root.querySelector('#pills'), await ctx.api.get('/api/history/hourly?sensor=cpu&hours=7'));
+  const hourly = await ctx.api.get('/api/history/hourly?sensor=cpu&hours=7');
+  if (root) pillChart(root.querySelector('#pills'), hourly);
 }
 
 async function loadMax() {
@@ -67,6 +73,7 @@ async function loadMax() {
 
 async function loadAlert() {
   const [a] = await ctx.api.get('/api/alerts/log?limit=1');
+  if (!root) return;
   const card = root.querySelector('#last-alert');
   if (!a) {
     card.innerHTML = `<h3>Last Alert</h3><h2>No alerts yet</h2><p>Everything has stayed below your limits.</p><a class="btn pri" href="#/alerts">⚙ Edit Thresholds</a>`;

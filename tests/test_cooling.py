@@ -108,3 +108,28 @@ def test_set_mode_failure_raises(env):
         cooling.set_mode("quiet", "app", 0)
     assert cooling.mode() == "balanced"
     assert store.cooling_events(0) == []
+
+
+def test_poll_does_not_report_app_change_as_external(env):
+    import threading
+    import time
+
+    api, store, cooling = env
+    cooling.poll(0)
+    real_get = api.get_overlay
+    started = threading.Event()
+
+    def slow_get():
+        guid = real_get()
+        if not started.is_set():
+            started.set()
+            threading.Thread(target=lambda: cooling.set_mode("performance", "app", 1)).start()
+            time.sleep(0.2)
+        return guid
+
+    api.get_overlay = slow_get
+    cooling.poll(1)
+    time.sleep(0.3)
+    api.get_overlay = real_get
+    cooling.poll(2)
+    assert [e["source"] for e in store.cooling_events(0)] == ["app"]

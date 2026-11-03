@@ -56,9 +56,7 @@ def test_cooldown_300s(env):
 def test_none_value_ignored(env):
     engine, notifier, store = env
     assert engine.check({"gpu1": None}, now=0) == []
-    engine.check({"gpu1": 90.0}, now=1)
-    engine.check({"gpu1": None}, now=2)
-    assert store.alerts()[0]["ended"] is None
+    assert store.alerts() == []
 
 
 def test_disabled_threshold(env):
@@ -81,3 +79,24 @@ def test_label_for_reading_id(env):
     engine.set_thresholds([Threshold("/gpu-nvidia/0/temperature/2", True, 80)])
     engine.check({"/gpu-nvidia/0/temperature/2": 81.0}, now=0)
     assert notifier.calls[0][0] == "/gpu-nvidia/0/temperature/2 is 81 °C"
+
+
+def test_open_alert_ends_when_sensor_goes_missing(env):
+    engine, notifier, store = env
+    engine.check({"gpu1": 90.0}, now=0)
+    engine.check({"gpu1": None}, now=5)
+    assert store.alerts()[0]["ended"] == 5
+
+
+def test_removing_threshold_ends_open_alert(env):
+    engine, notifier, store = env
+    engine.check({"cpu": 95.0}, now=0)
+    engine.set_thresholds([Threshold("gpu0", True, 85)], now=7)
+    assert store.alerts()[0]["ended"] == 7
+
+
+def test_startup_closes_orphaned_alerts():
+    store = Store(":memory:")
+    store.alert_start("cpu", 10.0, 95.0)
+    AlertEngine(list(DEFAULT_THRESHOLDS), FakeNotifier(), store, now=50.0)
+    assert store.alerts()[0]["ended"] == 50.0

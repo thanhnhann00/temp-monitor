@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 import os
 from dataclasses import asdict, dataclass, field, fields
 from pathlib import Path
@@ -23,8 +24,13 @@ class Settings:
     smart: SmartRules = field(default_factory=SmartRules)
 
 
-def _num(v) -> bool:
-    return isinstance(v, (int, float)) and not isinstance(v, bool)
+def _num(v, lo: float = -math.inf, hi: float = math.inf) -> bool:
+    return isinstance(v, (int, float)) and not isinstance(v, bool) and math.isfinite(v) and lo <= v <= hi
+
+
+# Same limits the API enforces (thermo/server.py).
+TEMP_RANGE = (30, 110)
+SECONDS_RANGE = (5, 3600)
 
 
 def _thresholds(raw) -> list[Threshold] | None:
@@ -33,7 +39,7 @@ def _thresholds(raw) -> list[Threshold] | None:
     out = []
     for t in raw:
         if not (isinstance(t, dict) and isinstance(t.get("key"), str) and isinstance(t.get("enabled"), bool)
-                and _num(t.get("limit_c"))):
+                and _num(t.get("limit_c"), *TEMP_RANGE)):
             return None
         out.append(Threshold(t["key"], t["enabled"], float(t["limit_c"])))
     return out
@@ -46,9 +52,12 @@ def _smart(raw) -> SmartRules | None:
     for f in fields(SmartRules):
         if f.name in raw:
             v = raw[f.name]
-            if (f.name == "enabled" and not isinstance(v, bool)) or (f.name != "enabled" and not _num(v)):
+            rng = TEMP_RANGE if f.name.endswith("_c") else SECONDS_RANGE
+            if (f.name == "enabled" and not isinstance(v, bool)) or (f.name != "enabled" and not _num(v, *rng)):
                 return None
             base[f.name] = v
+    if base["down_c"] >= base["up_c"]:
+        return None
     return SmartRules(**base)
 
 
@@ -56,7 +65,7 @@ def _from_dict(raw: dict) -> Settings:
     s = Settings()
     if raw.get("theme") in THEMES:
         s.theme = raw["theme"]
-    if _num(raw.get("cpu_limit_c")):
+    if _num(raw.get("cpu_limit_c"), *TEMP_RANGE):
         s.cpu_limit_c = float(raw["cpu_limit_c"])
     if isinstance(raw.get("port"), int) and not isinstance(raw.get("port"), bool) and 1024 <= raw["port"] <= 65535:
         s.port = raw["port"]

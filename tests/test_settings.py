@@ -48,3 +48,20 @@ def test_wrong_type_field_reset(tmp_path):
     s = settings.load(p)
     assert s.port == 8000 and s.theme == "system"
     assert len(s.thresholds) == 4 and s.smart == SmartRules()
+
+
+def test_out_of_range_hand_edits_reset(tmp_path):
+    p = tmp_path / "settings.json"
+    p.write_text('{"cpu_limit_c": NaN, "thresholds": [{"key": "cpu", "enabled": true, "limit_c": 1e999}],'
+                 ' "smart": {"enabled": true, "up_s": -5}}')
+    s = settings.load(p)
+    assert s.cpu_limit_c == 90
+    assert len(s.thresholds) == 4
+    assert s.smart == SmartRules()
+    json.loads(p.read_text(), parse_constant=lambda c: (_ for _ in ()).throw(ValueError(c)))
+
+
+def test_smart_order_enforced_on_load(tmp_path):
+    p = tmp_path / "settings.json"
+    p.write_text('{"smart": {"enabled": true, "up_c": 70, "down_c": 80}}')
+    assert settings.load(p).smart == SmartRules()

@@ -5,8 +5,9 @@ import asyncio
 import json
 import queue
 import secrets
+import threading
 import time
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, field
 from pathlib import Path
 from typing import Callable, Literal
 
@@ -46,6 +47,7 @@ class AppState:
     lhm_error: str | None
     machine: dict
     request_quit: Callable[[], None]
+    stopping: threading.Event = field(default_factory=threading.Event)
 
 
 class SettingsIn(BaseModel):
@@ -109,7 +111,8 @@ def create_app(state: AppState, allowed_hosts: list[str] | None = None) -> FastA
                 if state.sampler.latest:
                     yield _sse(state.sampler.latest.to_json())
                 idle = 0.0
-                while not await request.is_disconnected():
+                # Open streams would otherwise keep uvicorn from shutting down after Quit.
+                while not state.stopping.is_set() and not await request.is_disconnected():
                     try:
                         snap = await asyncio.to_thread(q.get, True, 1.0)
                     except queue.Empty:
@@ -216,11 +219,12 @@ def create_app(state: AppState, allowed_hosts: list[str] | None = None) -> FastA
         if not state.cooling.available():
             return JSONResponse({"error": "Cooling modes need the Balanced power plan."}, status_code=409)
         t = time.time()
-        try:
-            state.cooling.set_mode(body.mode, "app", t)
-        except OSError as exc:
-            return JSONResponse({"error": f"Windows error {exc.errno}"}, status_code=502)
-        state.smart.on_manual_change(t)
+        with state.cooling.lock:  # keep Smart Cooling from switching between these two steps
+            try:
+                state.cooling.set_mode(body.mode, "app", t)
+            except OSError as exc:
+                return JSONResponse({"error": f"Windows error {exc.errno}"}, status_code=502)
+            state.smart.on_manual_change(t)
         return {"mode": body.mode}
 
     @app.put("/api/cooling/smart", dependencies=[Depends(require_token)])
@@ -243,6 +247,7 @@ def create_app(state: AppState, allowed_hosts: list[str] | None = None) -> FastA
 
     @app.post("/api/quit", dependencies=[Depends(require_token)])
     def quit_app():
+        state.stopping.set()
         state.request_quit()
         return {"stopping": True}
 
