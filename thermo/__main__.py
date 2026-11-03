@@ -97,7 +97,7 @@ def build_state(args: argparse.Namespace):
     sampler = Sampler(sources, store, alerts, cooling, smart, buffers)
     return AppState(sampler=sampler, store=store, buffers=buffers, cooling=cooling, smart=smart, alerts=alerts,
                     settings=settings, settings_path=settings_path, token=secrets.token_urlsafe(32),
-                    is_admin=_is_admin(), lhm_error=sources.lhm_error, machine=_machine(args.fake),
+                    is_admin=True if args.fake else _is_admin(), lhm_error=sources.lhm_error, machine=_machine(args.fake),
                     request_quit=lambda: None)
 
 

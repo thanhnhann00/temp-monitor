@@ -1,0 +1,33 @@
+@font-face { font-family: "Plus Jakarta Sans"; font-weight: 400; font-display: swap; src: url("/static/vendor/fonts/plus-jakarta-sans-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; font-display: swap; src: url("/static/vendor/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; font-display: swap; src: url("/static/vendor/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; font-display: swap; src: url("/static/vendor/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+
+:root {
+  --bg: #ecebea; --app: #ffffff; --panel: #f7f6f5; --card: #ffffff; --ink: #1a1410; --muted: #6b645e; --line: #eeebe8;
+  --o900: #7c2d12; --o700: #c2410c; --o500: #f97316; --o300: #fdba74; --o100: #fff1e6;
+  --hero: linear-gradient(140deg, #fb923c 0%, #ea580c 55%, #9a3412 100%);
+  --deep: radial-gradient(circle at 85% 110%, #f97316 0, #9a3412 50%, #431407 100%);
+  --stripe: #b3aaa3; --stripe-bg: #ffffff;
+  --ok: #15803d; --ok-bg: #e8f6ec; --ok-bd: #bfe3cb;
+  --warm: #a16207; --warm-bg: #fdf6dc; --warm-bd: #f0dc9a;
+  --hot: #dc2626; --hot-bg: #fdeaea; --hot-bd: #f4c2c2;
+  --btn-ink: #7c2d12;
+  --chart-a: #f97316; --chart-b: #9a3412; --chart-fill: rgba(249, 115, 22, .2);
+  --pill-hot: #9a3412;
+  --shadow: 0 10px 30px rgba(26, 20, 16, .12);
+}
+[data-theme="dark"] {
+  --bg: #0b0b0d; --app: #121215; --panel: #18181c; --card: #212126; --ink: #f4f2f0; --muted: #a6a19c; --line: #2d2c31;
+  --o900: #fdba74; --o700: #fb923c; --o500: #f97316; --o300: #fed7aa; --o100: #3a2416;
+  --hero: linear-gradient(140deg, #f97316 0%, #c2410c 55%, #6b230c 100%);
+  --deep: radial-gradient(circle at 85% 110%, #ea580c 0, #7c2d12 45%, #1f0d05 100%);
+  --stripe: #5a5751; --stripe-bg: #212126;
+  --ok: #4ade80; --ok-bg: #15301f; --ok-bd: #22543a;
+  --warm: #facc15; --warm-bg: #352d0e; --warm-bd: #5c4d12;
+  --hot: #f87171; --hot-bg: #3b1717; --hot-bd: #6b2626;
+  --btn-ink: #fdba74;
+  --chart-a: #fb923c; --chart-b: #fdba74; --chart-fill: rgba(249, 115, 22, .25);
+  --pill-hot: #c2410c;
+  --shadow: 0 10px 30px rgba(0, 0, 0, .5);
+}
