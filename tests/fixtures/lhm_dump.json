@@ -1,0 +1,814 @@
+[
+ {
+  "id": "/amdcpu/0/load/2",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #1",
+  "kind": "load",
+  "value": 58.57691192626953
+ },
+ {
+  "id": "/amdcpu/0/load/3",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #2",
+  "kind": "load",
+  "value": 38.994998931884766
+ },
+ {
+  "id": "/amdcpu/0/load/4",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #3",
+  "kind": "load",
+  "value": 57.71208953857422
+ },
+ {
+  "id": "/amdcpu/0/load/5",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #4",
+  "kind": "load",
+  "value": 41.97346115112305
+ },
+ {
+  "id": "/amdcpu/0/load/6",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #5",
+  "kind": "load",
+  "value": 68.24681854248047
+ },
+ {
+  "id": "/amdcpu/0/load/7",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #6",
+  "kind": "load",
+  "value": 29.528587341308594
+ },
+ {
+  "id": "/amdcpu/0/load/8",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #7",
+  "kind": "load",
+  "value": 48.2400016784668
+ },
+ {
+  "id": "/amdcpu/0/load/9",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #8",
+  "kind": "load",
+  "value": 29.027456283569336
+ },
+ {
+  "id": "/amdcpu/0/load/10",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #9",
+  "kind": "load",
+  "value": 5.391806602478027
+ },
+ {
+  "id": "/amdcpu/0/load/11",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #10",
+  "kind": "load",
+  "value": 1.7300426959991455
+ },
+ {
+  "id": "/amdcpu/0/load/12",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #11",
+  "kind": "load",
+  "value": 0.5207657814025879
+ },
+ {
+  "id": "/amdcpu/0/load/13",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #12",
+  "kind": "load",
+  "value": 0.5161046981811523
+ },
+ {
+  "id": "/amdcpu/0/load/14",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #13",
+  "kind": "load",
+  "value": 0.5207598209381104
+ },
+ {
+  "id": "/amdcpu/0/load/15",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #14",
+  "kind": "load",
+  "value": 0.515902042388916
+ },
+ {
+  "id": "/amdcpu/0/load/16",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #15",
+  "kind": "load",
+  "value": 1.6419053077697754
+ },
+ {
+  "id": "/amdcpu/0/load/17",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core #16",
+  "kind": "load",
+  "value": 0.5156993865966797
+ },
+ {
+  "id": "/amdcpu/0/load/0",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Total",
+  "kind": "load",
+  "value": 23.97834014892578
+ },
+ {
+  "id": "/amdcpu/0/load/1",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "CPU Core Max",
+  "kind": "load",
+  "value": 68.24681854248047
+ },
+ {
+  "id": "/amdcpu/0/power/0",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Package",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/clock/1",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #1",
+  "kind": "clock",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/factor/0",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #1",
+  "kind": "factor",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/power/1",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #1 (SMU)",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/voltage/2",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #1 VID",
+  "kind": "voltage",
+  "value": 1.5499999523162842
+ },
+ {
+  "id": "/amdcpu/0/clock/2",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #2",
+  "kind": "clock",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/factor/1",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #2",
+  "kind": "factor",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/power/2",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #2 (SMU)",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/voltage/3",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #2 VID",
+  "kind": "voltage",
+  "value": 1.5499999523162842
+ },
+ {
+  "id": "/amdcpu/0/clock/3",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #3",
+  "kind": "clock",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/factor/2",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #3",
+  "kind": "factor",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/power/3",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #3 (SMU)",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/voltage/4",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #3 VID",
+  "kind": "voltage",
+  "value": 1.5499999523162842
+ },
+ {
+  "id": "/amdcpu/0/clock/4",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #4",
+  "kind": "clock",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/factor/3",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #4",
+  "kind": "factor",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/power/4",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #4 (SMU)",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/voltage/5",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #4 VID",
+  "kind": "voltage",
+  "value": 1.5499999523162842
+ },
+ {
+  "id": "/amdcpu/0/clock/5",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #5",
+  "kind": "clock",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/factor/4",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #5",
+  "kind": "factor",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/power/5",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #5 (SMU)",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/voltage/6",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #5 VID",
+  "kind": "voltage",
+  "value": 1.5499999523162842
+ },
+ {
+  "id": "/amdcpu/0/clock/6",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #6",
+  "kind": "clock",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/factor/5",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #6",
+  "kind": "factor",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/power/6",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #6 (SMU)",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/voltage/7",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #6 VID",
+  "kind": "voltage",
+  "value": 1.5499999523162842
+ },
+ {
+  "id": "/amdcpu/0/clock/7",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #7",
+  "kind": "clock",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/factor/6",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #7",
+  "kind": "factor",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/power/7",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #7 (SMU)",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/voltage/8",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #7 VID",
+  "kind": "voltage",
+  "value": 1.5499999523162842
+ },
+ {
+  "id": "/amdcpu/0/clock/8",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #8",
+  "kind": "clock",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/factor/7",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #8",
+  "kind": "factor",
+  "value": null
+ },
+ {
+  "id": "/amdcpu/0/power/8",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #8 (SMU)",
+  "kind": "power",
+  "value": 0.0
+ },
+ {
+  "id": "/amdcpu/0/voltage/9",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core #8 VID",
+  "kind": "voltage",
+  "value": 1.5499999523162842
+ },
+ {
+  "id": "/amdcpu/0/temperature/2",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Core (Tctl/Tdie)",
+  "kind": "temperature",
+  "value": 0.0
+ },
+ {
+  "id": "/ram/data/0",
+  "hardware": "Generic Memory",
+  "name": "Memory Used",
+  "kind": "data",
+  "value": 11.129989624023438
+ },
+ {
+  "id": "/ram/data/1",
+  "hardware": "Generic Memory",
+  "name": "Memory Available",
+  "kind": "data",
+  "value": 2.5623397827148438
+ },
+ {
+  "id": "/ram/load/0",
+  "hardware": "Generic Memory",
+  "name": "Memory",
+  "kind": "load",
+  "value": 81.28631591796875
+ },
+ {
+  "id": "/ram/data/2",
+  "hardware": "Generic Memory",
+  "name": "Virtual Memory Used",
+  "kind": "data",
+  "value": 24.29468536376953
+ },
+ {
+  "id": "/ram/data/3",
+  "hardware": "Generic Memory",
+  "name": "Virtual Memory Available",
+  "kind": "data",
+  "value": 3.8774871826171875
+ },
+ {
+  "id": "/ram/load/1",
+  "hardware": "Generic Memory",
+  "name": "Virtual Memory",
+  "kind": "load",
+  "value": 86.23646545410156
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/2",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "GPU Memory Total",
+  "kind": "smalldata",
+  "value": 2048.0
+ },
+ {
+  "id": "/gpu-amd/0/factor/0",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "Fullscreen FPS",
+  "kind": "factor",
+  "value": -1.0
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/5",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Dedicated Memory Total",
+  "kind": "smalldata",
+  "value": 2021.796875
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/4",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Dedicated Memory Free",
+  "kind": "smalldata",
+  "value": 916.984375
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/3",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Dedicated Memory Used",
+  "kind": "smalldata",
+  "value": 1104.8125
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/6",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Shared Memory Used",
+  "kind": "smalldata",
+  "value": 717.74609375
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/7",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Shared Memory Free",
+  "kind": "smalldata",
+  "value": 6292.7265625
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/8",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Shared Memory Total",
+  "kind": "smalldata",
+  "value": 7010.47265625
+ },
+ {
+  "id": "/gpu-amd/0/load/2",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D 3D",
+  "kind": "load",
+  "value": 8.769363403320312
+ },
+ {
+  "id": "/gpu-amd/0/load/7",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D High Priority 3D",
+  "kind": "load",
+  "value": 3.1993424892425537
+ },
+ {
+  "id": "/gpu-amd/0/load/8",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D High Priority Compute",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/11",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D True Audio 0",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/12",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D True Audio 1",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/5",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Compute 3",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/3",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Compute 0",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/4",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Compute 1",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/15",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Video JPEG",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/14",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Video Decode 1",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/13",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Video Codec 0",
+  "kind": "load",
+  "value": 15.54504680633545
+ },
+ {
+  "id": "/gpu-amd/0/load/6",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Copy",
+  "kind": "load",
+  "value": 0.016424674540758133
+ },
+ {
+  "id": "/gpu-amd/0/load/10",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Timer 0",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/load/9",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "D3D Security 1",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/0",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "GPU Memory Used",
+  "kind": "smalldata",
+  "value": 1104.0
+ },
+ {
+  "id": "/gpu-amd/0/smalldata/1",
+  "hardware": "AMD Radeon(TM) Graphics",
+  "name": "GPU Memory Free",
+  "kind": "smalldata",
+  "value": 944.0
+ },
+ {
+  "id": "/gpu-nvidia/0/temperature/0",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Core",
+  "kind": "temperature",
+  "value": 46.0
+ },
+ {
+  "id": "/gpu-nvidia/0/clock/0",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Core",
+  "kind": "clock",
+  "value": 1057.0
+ },
+ {
+  "id": "/gpu-nvidia/0/clock/4",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Memory",
+  "kind": "clock",
+  "value": 5500.9921875
+ },
+ {
+  "id": "/gpu-nvidia/0/load/0",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Core",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/1",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Memory Controller",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/2",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Video Engine",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/3",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Bus",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/smalldata/3",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Dedicated Memory Used",
+  "kind": "smalldata",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/smalldata/4",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Shared Memory Used",
+  "kind": "smalldata",
+  "value": 0.25
+ },
+ {
+  "id": "/gpu-nvidia/0/load/5",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D 3D",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/8",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Overlay",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/10",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Video Decode",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/6",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Copy",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/7",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Copy",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/9",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Security",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/11",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Video Encode",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/12",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D Video Processing",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/13",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "D3D VR",
+  "kind": "load",
+  "value": 0.0
+ },
+ {
+  "id": "/gpu-nvidia/0/temperature/2",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Hot Spot",
+  "kind": "temperature",
+  "value": 53.40625
+ },
+ {
+  "id": "/gpu-nvidia/0/smalldata/2",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Memory Total",
+  "kind": "smalldata",
+  "value": 4096.0
+ },
+ {
+  "id": "/gpu-nvidia/0/smalldata/0",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Memory Free",
+  "kind": "smalldata",
+  "value": 3977.0
+ },
+ {
+  "id": "/gpu-nvidia/0/smalldata/1",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Memory Used",
+  "kind": "smalldata",
+  "value": 119.0
+ },
+ {
+  "id": "/gpu-nvidia/0/load/3",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Memory",
+  "kind": "load",
+  "value": 2.9052734375
+ },
+ {
+  "id": "/gpu-nvidia/0/power/0",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU Package",
+  "kind": "power",
+  "value": 9.960000038146973
+ },
+ {
+  "id": "/gpu-nvidia/0/throughput/0",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU PCIe Rx",
+  "kind": "throughput",
+  "value": 89088000.0
+ },
+ {
+  "id": "/gpu-nvidia/0/throughput/1",
+  "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "name": "GPU PCIe Tx",
+  "kind": "throughput",
+  "value": 10240000.0
+ },
+ {
+  "id": "/battery/AP16L5J%00_6/energy/0",
+  "hardware": "AP16L5J",
+  "name": "Designed Capacity",
+  "kind": "energy",
+  "value": 75000.0
+ },
+ {
+  "id": "/battery/AP16L5J%00_6/energy/1",
+  "hardware": "AP16L5J",
+  "name": "Fully-Charged Capacity",
+  "kind": "energy",
+  "value": 59500.0
+ },
+ {
+  "id": "/battery/AP16L5J%00_6/level/1",
+  "hardware": "AP16L5J",
+  "name": "Degradation Level",
+  "kind": "level",
+  "value": 20.666664123535156
+ },
+ {
+  "id": "/battery/AP16L5J%00_6/energy/2",
+  "hardware": "AP16L5J",
+  "name": "Remaining Capacity",
+  "kind": "energy",
+  "value": 47590.0
+ },
+ {
+  "id": "/battery/AP16L5J%00_6/level/0",
+  "hardware": "AP16L5J",
+  "name": "Charge Level",
+  "kind": "level",
+  "value": 79.98319244384766
+ },
+ {
+  "id": "/battery/AP16L5J%00_6/voltage/0",
+  "hardware": "AP16L5J",
+  "name": "Voltage",
+  "kind": "voltage",
+  "value": 16.264999389648438
+ },
+ {
+  "id": "/battery/AP16L5J%00_6/current/0",
+  "hardware": "AP16L5J",
+  "name": "Charge/Discharge Current",
+  "kind": "current",
+  "value": 0.0
+ },
+ {
+  "id": "/battery/AP16L5J%00_6/power/0",
+  "hardware": "AP16L5J",
+  "name": "Charge/Discharge Rate",
+  "kind": "power",
+  "value": 0.0
+ }
+]
