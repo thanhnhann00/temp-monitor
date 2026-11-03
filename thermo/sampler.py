@@ -11,7 +11,7 @@ from thermo import mapping
 from thermo.alerts import AlertEngine
 from thermo.buffers import UsageBuffers
 from thermo.cooling import Cooling, SmartCooling
-from thermo.model import Snapshot, finite
+from thermo.model import Reading, Snapshot, finite
 from thermo.store import Store
 
 log = logging.getLogger(__name__)
@@ -95,7 +95,9 @@ class Sampler:
 
         if not self.paused and self._ticks % self.PERSIST_EVERY == 0:
             try:
-                self.store.add_temps(now, readings)
+                # Headline values are also saved under their short keys (cpu, gpu0, ...) for charts.
+                short = [Reading(key, "", key, "temperature", v) for key, v in headline.items()]
+                self.store.add_temps(now, readings + short)
                 self.store_error = None
             except sqlite3.Error as exc:
                 self.store_error = str(exc)

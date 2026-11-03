@@ -44,7 +44,14 @@ def test_tick_builds_snapshot():
 def test_persist_every_second_tick():
     sampler, store, _ = make()
     snaps = [sampler.tick(1000.0 + i) for i in range(4)]
-    assert store.sample_count() == 2 * finite_temps(snaps[0].readings)
+    headline = sum(1 for v in snaps[0].headline.values() if v is not None)
+    assert store.sample_count() == 2 * (finite_temps(snaps[0].readings) + headline)
+
+
+def test_headline_saved_under_short_keys():
+    sampler, store, _ = make()
+    sampler.tick(1000.0)
+    assert len(store.series(["cpu"], since=0)["cpu"]) == 1
 
 
 def test_paused_skips_store_only():
