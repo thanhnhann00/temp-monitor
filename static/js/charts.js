@@ -32,7 +32,7 @@ const markerPlugin = {
 };
 
 // series: [{ label, color?: cssVar, fill?: bool, dash?: bool, axis?: 'y' | 'y2', unit? }]
-export function areaChart(canvas, { series, yMax = null, yUnit = '', grid = true, spark = false, xRange = 60 }) {
+export function areaChart(canvas, { series, yMax = null, yMin = 0, yUnit = '', grid = true, spark = false, xRange = 60 }) {
   const chart = new window.Chart(canvas, {
     type: 'line',
     plugins: [markerPlugin],
@@ -56,7 +56,7 @@ export function areaChart(canvas, { series, yMax = null, yUnit = '', grid = true
       },
       scales: {
         x: { type: 'linear', display: !spark && grid, ticks: { display: false }, grid: { drawTicks: false }, border: { display: false } },
-        y: { display: !spark && grid, min: 0, max: yMax ?? undefined, ticks: { display: false, maxTicksLimit: 5 }, grid: { drawTicks: false }, border: { display: false } },
+        y: { display: !spark && grid, min: yMin, max: yMax ?? undefined, ticks: { display: false, maxTicksLimit: 5 }, grid: { drawTicks: false }, border: { display: false } },
         ...(series.some((s) => s.axis === 'y2') ? { y2: { display: false, min: 0 } } : {}),
       },
     },
@@ -71,7 +71,7 @@ export function areaChart(canvas, { series, yMax = null, yUnit = '', grid = true
         const s = series[i];
         const color = s.onHero ? '#ffffff' : css(s.color ?? '--chart-a');
         ds.borderColor = color;
-        ds.backgroundColor = s.onHero ? 'rgba(255,255,255,.25)' : (s.color && s.color !== '--chart-a' ? 'transparent' : css('--chart-fill'));
+        ds.backgroundColor = s.onHero ? 'rgba(255,255,255,.25)' : (ds.fill ? css('--chart-fill') : 'transparent');
       });
       chart.update('none');
     },
