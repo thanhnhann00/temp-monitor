@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Thermo Fans Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  if (new URLSearchParams(location.search).get('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+</script>
+<link rel="stylesheet" href="style.css">
+<style>
+.fboard{background:var(--panel);border-radius:20px;padding:18px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto 1fr;gap:12px}
+.fboard .head{grid-column:1/-1}
+.modes{grid-column:span 2;display:flex;flex-direction:column;gap:14px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mode{border-radius:16px;padding:16px;background:var(--panel);border:1.5px solid transparent}
+.mode b{display:block;font-size:17px;font-weight:600;margin:6px 0 4px}
+.mode small{font-size:11.5px;color:var(--muted);line-height:1.45;display:block}
+.mode .em{font-size:20px}
+.mode.on{background:var(--hero);color:#fff}
+.mode.on small{color:#ffe7d3}
+.note{font-size:11.5px;color:var(--muted)}
+.rpm .v{font-size:40px;font-weight:600;margin:10px 0 4px;letter-spacing:-.02em}
+.rpm .v span{font-size:18px;color:var(--muted);font-weight:500}
+.rpm .bar{height:10px;border-radius:999px;background:var(--panel);overflow:hidden;margin-top:10px}
+.rpm .bar i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#fdba74,#f97316)}
+.rpm .f{font-size:11px;color:var(--muted);margin-top:8px;display:flex;justify-content:space-between}
+.spin{position:absolute;right:18px;top:16px;font-size:26px;color:var(--o500)}
+.auto{display:flex;flex-direction:column;gap:12px}
+.sw{position:absolute;right:18px;top:16px;width:46px;height:26px;border-radius:999px;background:var(--o500)}
+.sw::after{content:"";position:absolute;right:3px;top:3px;width:20px;height:20px;border-radius:50%;background:#fff}
+.rule{background:var(--panel);border-radius:12px;padding:12px 14px;font-size:12.5px;line-height:1.55}
+.rule b{color:var(--o700)}
+.chart{width:100%;border-radius:12px;background:var(--panel);display:block}
+.legend2{display:flex;gap:14px;font-size:11px;color:var(--muted);position:absolute;right:18px;top:18px}
+.legend2 span::before{content:"";display:inline-block;width:14px;height:3px;border-radius:2px;margin-right:6px;vertical-align:3px;background:var(--c)}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="logo"><div class="mark">🌡</div>Thermo</div>
+    <div class="sec">Menu</div>
+    <nav>
+      <a><span class="ic">▦</span>Dashboard</a>
+      <a><span class="ic">∿</span>Performance</a>
+      <a><span class="ic">◎</span>Sensors <span class="badge">14</span></a>
+      <a><span class="ic">◷</span>History</a>
+      <a><span class="ic">⚠</span>Alerts</a>
+      <a class="on"><span class="ic">≋</span>Fans</a>
+    </nav>
+    <div class="sec">General</div>
+    <nav>
+      <a><span class="ic">⚙</span>Settings</a>
+      <a><span class="ic">⏻</span>Quit monitor</a>
+    </nav>
+    <div class="promo">
+      <div style="font-size:14px">🛡</div>
+      <h4>Running as<br>Administrator</h4>
+      <p>All 14 sensors are readable</p>
+      <button>Open Sensor List</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="top">
+      <div class="search">⌕ Search sensor <kbd>Ctrl F</kbd></div>
+      <div class="sp"></div>
+      <button class="toggle" onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'">
+        <span class="l">☀ Light</span><span class="d">☾ Dark</span>
+      </button>
+      <div class="iconbtn">🔔</div>
+      <div class="who"><div class="av">💻</div><div><b>NHAN-LAPTOP</b><small>IdeaPad 5 Pro 16ARH7</small></div></div>
+    </div>
+
+    <div class="fboard">
+      <div class="head">
+        <div><h1>Fans &amp; Cooling</h1><p>Choose how hard the fans work. Same modes as Fn + Q.</p></div>
+      </div>
+
+      <div class="card modes">
+        <h3>Cooling Mode</h3>
+        <div class="seg">
+          <div class="mode"><div class="em">🌙</div><b>Quiet</b><small>Fans stay low and quiet.<br>CPU and GPU run slower and cooler.</small></div>
+          <div class="mode on"><div class="em">⚖</div><b>Balanced</b><small>Fans speed up only when needed.<br>Good for everyday use.</small></div>
+          <div class="mode"><div class="em">🚀</div><b>Performance</b><small>Fans spin up sooner and faster.<br>Best for games and renders.</small></div>
+        </div>
+        <p class="note">Changes the Windows power mode, which your Lenovo cooling service follows. Switched 2 min ago.</p>
+      </div>
+
+      <div class="card auto">
+        <h3>Smart Cooling</h3><div class="sw"></div>
+        <div class="rule">Switch to <b>Performance</b> when CPU stays at or above <b>85 °C</b> for <b>30 s</b>.</div>
+        <div class="rule">Go back to <b>Balanced</b> when CPU stays below <b>70 °C</b> for <b>2 min</b>.</div>
+        <p class="note">Last switch: Today 12:42 PM → Performance</p>
+      </div>
+
+      <div class="card rpm"><h3>CPU Fan</h3><div class="spin">✲</div><div class="v">3,200<span> RPM</span></div><div class="bar"><i style="width:58%"></i></div><div class="f"><span>58% of max</span><span>CPU 67 °C</span></div></div>
+      <div class="card rpm"><h3>GPU Fan</h3><div class="spin">✲</div><div class="v">2,900<span> RPM</span></div><div class="bar"><i style="width:52%"></i></div><div class="f"><span>52% of max</span><span>GPU 58 °C</span></div></div>
+      <div class="card rpm"><h3>RTX 3050</h3><div class="spin" style="color:var(--muted)">☾</div><div class="v" style="color:var(--muted)">Sleeping</div><div class="bar"><i style="width:0"></i></div><div class="f"><span>GPU is idle and powered down</span><span>—</span></div></div>
+
+      <div class="card" style="grid-column:1/-1">
+        <h3>Temperature vs Fan Speed · last 5 min</h3>
+        <div class="legend2"><span style="--c:#f97316">CPU temp</span><span style="--c:#9a3412">CPU fan</span><span style="--c:var(--stripe)">Mode change</span></div>
+        <svg class="chart" id="tf" height="190" style="margin-top:14px"></svg>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+// mockup only: deterministic fake series
+function rng(s){return()=>{s=(s*16807)%2147483647;return s/2147483647}}
+function series(seed,n,base,jit){const r=rng(seed);let v=base;return Array.from({length:n},()=>{v=Math.min(.95,Math.max(.05,v+(r()-.5)*jit));return v})}
+const svg=document.getElementById('tf'),w=svg.clientWidth,h=svg.clientHeight;
+function path(d){return d.map((v,i)=>(i?'L':'M')+(i/(d.length-1)*w).toFixed(1)+' '+(h-v*h).toFixed(1)).join(' ')}
+let g='';for(let i=1;i<10;i++)g+=`<line x1="${i*w/10}" y1="0" x2="${i*w/10}" y2="${h}" stroke="var(--line)"/>`;for(let i=1;i<4;i++)g+=`<line x1="0" y1="${i*h/4}" x2="${w}" y2="${i*h/4}" stroke="var(--line)"/>`;
+const t=series(7,90,.55,.08),f=t.map((v,i)=>Math.min(.95,(t[Math.max(0,i-4)]*.9)+(i>55?.12:0)));
+const mx=w*55/89;
+svg.innerHTML=g+`<line x1="${mx}" y1="0" x2="${mx}" y2="${h}" stroke="var(--stripe)" stroke-dasharray="4 4" stroke-width="1.5"/><text x="${mx+6}" y="14" font-size="10" fill="var(--muted)">→ Performance</text>`
+ +`<path d="${path(t)} L${w} ${h} L0 ${h}Z" fill="rgba(249,115,22,.18)"/><path d="${path(t)}" fill="none" stroke="#f97316" stroke-width="2"/>`
+ +`<path d="${path(f)}" fill="none" stroke="#9a3412" stroke-width="2"/>`;
+</script>
+</body>
+</html>

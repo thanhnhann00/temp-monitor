@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<title>Thermo Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+  // mockup only: ?theme=dark preloads dark mode for screenshots
+  if (new URLSearchParams(location.search).get('theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside>
+    <div class="logo"><div class="mark">🌡</div>Thermo</div>
+    <div class="sec">Menu</div>
+    <nav>
+      <a class="on"><span class="ic">▦</span>Dashboard</a>
+      <a><span class="ic">∿</span>Performance</a>
+      <a><span class="ic">◎</span>Sensors <span class="badge">14</span></a>
+      <a><span class="ic">◷</span>History</a>
+      <a><span class="ic">⚠</span>Alerts</a>
+      <a><span class="ic">≋</span>Fans</a>
+    </nav>
+    <div class="sec">General</div>
+    <nav>
+      <a><span class="ic">⚙</span>Settings</a>
+      <a><span class="ic">?</span>Help</a>
+      <a><span class="ic">⏻</span>Quit monitor</a>
+    </nav>
+    <div class="promo">
+      <div style="font-size:14px">🛡</div>
+      <h4>Running as<br>Administrator</h4>
+      <p>All 14 sensors are readable</p>
+      <button>Open Sensor List</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <div class="top">
+      <div class="search">⌕ Search sensor <kbd>Ctrl F</kbd></div>
+      <div class="sp"></div>
+      <button class="toggle" onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'">
+        <span class="l">☀ Light</span><span class="d">☾ Dark</span>
+      </button>
+      <div class="iconbtn">🔔</div>
+      <div class="who"><div class="av">💻</div><div><b>NHAN-LAPTOP</b><small>Ryzen 7 6800HS · RTX 3050</small></div></div>
+    </div>
+
+    <div class="board">
+      <div class="head">
+        <div><h1>Dashboard</h1><p>Live temperatures for your laptop, updated every 2 seconds.</p></div>
+        <div class="acts"><button class="btn pri">＋ Set Alert</button><button class="btn">Export CSV</button></div>
+      </div>
+
+      <div class="card stat hero"><h3>CPU Package</h3><div class="arrow">↗</div><div class="v">67<span>°C</span></div><div class="f"><i>▲3</i>Max 88 °C today</div></div>
+      <div class="card stat"><h3>RTX 3050 GPU</h3><div class="arrow">↗</div><div class="v">58<span>°C</span></div><div class="f"><i>▼2</i>Max 74 °C today</div></div>
+      <div class="card stat"><h3>Radeon iGPU</h3><div class="arrow">↗</div><div class="v">61<span>°C</span></div><div class="f"><i>▲1</i>Max 70 °C today</div></div>
+      <div class="card stat"><h3>NVMe SSD</h3><div class="arrow">↗</div><div class="v">44<span>°C</span></div><div class="f">Stable · max 51 °C</div></div>
+
+      <div class="card span2">
+        <h3>CPU Temperature · last 7 hours</h3>
+        <div class="legend"><span style="--c:#9a3412">Hot</span><span style="--c:#f97316">Warm</span><span style="--c:var(--stripe)">Cool</span></div>
+        <div class="bars">
+          <div class="bar"><div class="pill s" style="height:78px"></div><small>9a</small></div>
+          <div class="bar"><div class="pill a" style="height:118px"></div><small>10a</small></div>
+          <div class="bar"><div class="pill b" style="height:100px"><span class="tip">avg 74°</span></div><small>11a</small></div>
+          <div class="bar"><div class="pill c" style="height:150px"></div><small>12p</small></div>
+          <div class="bar"><div class="pill s" style="height:110px"></div><small>1p</small></div>
+          <div class="bar"><div class="pill s" style="height:84px"></div><small>2p</small></div>
+          <div class="bar"><div class="pill s" style="height:102px"></div><small>3p</small></div>
+        </div>
+      </div>
+
+      <div class="card alert">
+        <h3>Last Alert</h3>
+        <h2>CPU reached<br>91 °C</h2>
+        <p>Today · 12:42 PM · lasted 40 s</p>
+        <button class="btn pri">⚙ Edit Thresholds</button>
+      </div>
+
+      <div class="card">
+        <h3>All Sensors</h3><span class="mini">View all</span>
+        <div class="list" style="gap:10px">
+          <div class="row"><div class="ico">▣</div><div><b>CPU Core (Tctl)</b><small>AMD Ryzen 7 6800HS</small></div><span class="t">69°</span></div>
+          <div class="row"><div class="ico">◧</div><div><b>GPU Hot Spot</b><small>NVIDIA RTX 3050</small></div><span class="t">66°</span></div>
+          <div class="row"><div class="ico">◩</div><div><b>Radeon SoC</b><small>AMD Radeon 680M</small></div><span class="t">61°</span></div>
+          <div class="row"><div class="ico">▤</div><div><b>NVMe Composite</b><small>SSD 1 TB</small></div><span class="t">44°</span></div>
+          <div class="row"><div class="ico">▥</div><div><b>Battery</b><small>Charging · 82%</small></div><span class="t">33°</span></div>
+        </div>
+      </div>
+
+      <div class="card span2">
+        <h3>Fans &amp; Load</h3><span class="mini">＋ Fan Curve</span>
+        <div class="list" style="gap:11px">
+          <div class="row"><div class="ico">≋</div><div><b>CPU Fan</b><small>Spinning at <em>3,200 RPM</em> · CPU load 34%</small></div><span class="chip ok">Normal</span></div>
+          <div class="row"><div class="ico">≋</div><div><b>GPU Fan</b><small>Spinning at <em>2,900 RPM</em> · GPU load 52%</small></div><span class="chip warm">Warm</span></div>
+          <div class="row"><div class="ico">⚡</div><div><b>CPU Power</b><small>Package draw <em>28 W</em> of 45 W limit</small></div><span class="chip ok">Normal</span></div>
+          <div class="row"><div class="ico">⚡</div><div><b>GPU Power</b><small>Board draw <em>61 W</em> of 80 W limit</small></div><span class="chip hot">High</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Thermal Headroom</h3>
+        <div class="gauge">
+          <svg width="210" height="120" viewBox="0 0 210 120">
+            <defs><pattern id="st" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="var(--stripe-bg)"/><rect width="2" height="6" fill="var(--stripe)"/></pattern></defs>
+            <path d="M20 110 A85 85 0 0 1 190 110" fill="none" stroke="url(#st)" stroke-width="30"/>
+            <path d="M20 110 A85 85 0 0 1 105 25" fill="none" stroke="#f97316" stroke-width="30" stroke-linecap="round"/>
+            <path d="M105 25 A85 85 0 0 1 150 38" fill="none" stroke="#c2410c" stroke-width="30"/>
+          </svg>
+          <div class="n">23°</div>
+          <div class="l">below CPU limit (90 °C)</div>
+        </div>
+        <div class="glegend"><span style="--c:#f97316">Used</span><span style="--c:var(--stripe)">Headroom</span></div>
+      </div>
+
+      <div class="card timer">
+        <h3>Monitoring For</h3>
+        <div class="clock">01:24:08</div>
+        <small>2,524 samples saved</small>
+        <div class="ctl"><div>❚❚</div><div class="stop">■</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
