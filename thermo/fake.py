@@ -65,3 +65,23 @@ class FakeSources:
         disk_bps = (self._rng.uniform(0, 3e6), self._rng.uniform(0, 1.5e6))
         net_bps = (self._rng.uniform(5e3, 12e3), self._rng.uniform(0.5e3, 2e3))
         return readings, build_usage(readings, cpu_info, memory, disk_bps, wifi, net_bps, _GPUS)
+
+
+class FakePowerApi:
+    """In-memory PowerApi for tests and --fake."""
+
+    def __init__(self, guid: str = "00000000-0000-0000-0000-000000000000", balanced: bool = True):
+        self.guid = guid
+        self.balanced = balanced
+        self.fail_with: OSError | None = None
+
+    def get_overlay(self) -> str:
+        return self.guid
+
+    def set_overlay(self, guid: str) -> None:
+        if self.fail_with:
+            raise self.fail_with
+        self.guid = guid
+
+    def balanced_plan_active(self) -> bool:
+        return self.balanced
