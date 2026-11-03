@@ -69,6 +69,7 @@ class Cooling:
         self._store = store
         self._lock = threading.Lock()
         self._last: str | None = None
+        self.changed_externally = False
 
     def mode(self) -> str:
         try:
@@ -89,7 +90,8 @@ class Cooling:
         """Current mode; logs an 'external' event when it changed outside the app."""
         mode = self.mode()
         with self._lock:
-            if self._last is not None and mode != self._last and mode != "unknown":
+            self.changed_externally = self._last is not None and mode != self._last and mode != "unknown"
+            if self.changed_externally:
                 self._store.log_cooling(now, mode, "external")
             self._last = mode
         return mode
