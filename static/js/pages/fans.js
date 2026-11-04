@@ -159,7 +159,7 @@ function renderFans(snap) {
       <div class="card rpm" data-fan="${esc(f.id)}"><h3>${esc(f.name)}</h3><div class="spin" aria-hidden="true">✲</div>
         <div class="v" data-v>—</div><div class="meter"><i data-bar style="width:0"></i></div><div class="f"><span data-pct>&nbsp;</span><span data-t>&nbsp;</span></div></div>`).join('')
       : `<div class="card span2 nofan"><div class="big" aria-hidden="true">≋</div><div><h3>This laptop doesn't report fan speed</h3>
-          <p class="note">The cooling modes above still work. Fan speed may appear when Thermo runs as administrator.</p></div></div>`)
+          <p class="note">Lenovo doesn't expose fan RPM on this model. The cooling modes above still control how hard the fans run.</p></div></div>`)
       + `<div class="card rpm" id="rtx"><h3>RTX 3050</h3><div class="spin" aria-hidden="true" data-icon>☾</div>
           <div class="v" data-v>—</div><div class="meter"><i data-bar style="width:0"></i></div><div class="f"><span data-pct>&nbsp;</span><span data-t>&nbsp;</span></div></div>`;
   }
