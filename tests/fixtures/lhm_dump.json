@@ -4,406 +4,413 @@
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #1",
   "kind": "load",
-  "value": 58.57691192626953
+  "value": 63.005531311035156
  },
  {
   "id": "/amdcpu/0/load/3",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #2",
   "kind": "load",
-  "value": 38.994998931884766
+  "value": 43.66121292114258
  },
  {
   "id": "/amdcpu/0/load/4",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #3",
   "kind": "load",
-  "value": 57.71208953857422
+  "value": 62.842857360839844
  },
  {
   "id": "/amdcpu/0/load/5",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #4",
   "kind": "load",
-  "value": 41.97346115112305
+  "value": 46.243412017822266
  },
  {
   "id": "/amdcpu/0/load/6",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #5",
   "kind": "load",
-  "value": 68.24681854248047
+  "value": 67.63483428955078
  },
  {
   "id": "/amdcpu/0/load/7",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #6",
   "kind": "load",
-  "value": 29.528587341308594
+  "value": 55.25736999511719
  },
  {
   "id": "/amdcpu/0/load/8",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #7",
   "kind": "load",
-  "value": 48.2400016784668
+  "value": 54.050018310546875
  },
  {
   "id": "/amdcpu/0/load/9",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #8",
   "kind": "load",
-  "value": 29.027456283569336
+  "value": 40.507877349853516
  },
  {
   "id": "/amdcpu/0/load/10",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #9",
   "kind": "load",
-  "value": 5.391806602478027
+  "value": 24.916088104248047
  },
  {
   "id": "/amdcpu/0/load/11",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #10",
   "kind": "load",
-  "value": 1.7300426959991455
+  "value": 16.76010513305664
  },
  {
   "id": "/amdcpu/0/load/12",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #11",
   "kind": "load",
-  "value": 0.5207657814025879
+  "value": 11.939054489135742
  },
  {
   "id": "/amdcpu/0/load/13",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #12",
   "kind": "load",
-  "value": 0.5161046981811523
+  "value": 9.065670013427734
  },
  {
   "id": "/amdcpu/0/load/14",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #13",
   "kind": "load",
-  "value": 0.5207598209381104
+  "value": 5.293262004852295
  },
  {
   "id": "/amdcpu/0/load/15",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #14",
   "kind": "load",
-  "value": 0.515902042388916
+  "value": 3.2008111476898193
  },
  {
   "id": "/amdcpu/0/load/16",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #15",
   "kind": "load",
-  "value": 1.6419053077697754
+  "value": 0.9634792804718018
  },
  {
   "id": "/amdcpu/0/load/17",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core #16",
   "kind": "load",
-  "value": 0.5156993865966797
+  "value": 0.9810149669647217
  },
  {
   "id": "/amdcpu/0/load/0",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Total",
   "kind": "load",
-  "value": 23.97834014892578
+  "value": 31.645160675048828
  },
  {
   "id": "/amdcpu/0/load/1",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "CPU Core Max",
   "kind": "load",
-  "value": 68.24681854248047
+  "value": 67.63483428955078
  },
  {
   "id": "/amdcpu/0/power/0",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Package",
   "kind": "power",
-  "value": 0.0
+  "value": 14.6544828414917
  },
  {
   "id": "/amdcpu/0/clock/1",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #1",
   "kind": "clock",
-  "value": null
+  "value": 3443.767822265625
  },
  {
   "id": "/amdcpu/0/factor/0",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #1",
   "kind": "factor",
-  "value": null
+  "value": 34.5
  },
  {
   "id": "/amdcpu/0/power/1",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #1 (SMU)",
   "kind": "power",
-  "value": 0.0
+  "value": 2.364565372467041
  },
  {
   "id": "/amdcpu/0/voltage/2",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #1 VID",
   "kind": "voltage",
-  "value": 1.5499999523162842
+  "value": 0.6625000238418579
  },
  {
   "id": "/amdcpu/0/clock/2",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #2",
   "kind": "clock",
-  "value": null
+  "value": 3443.767822265625
  },
  {
   "id": "/amdcpu/0/factor/1",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #2",
   "kind": "factor",
-  "value": null
+  "value": 34.5
  },
  {
   "id": "/amdcpu/0/power/2",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #2 (SMU)",
   "kind": "power",
-  "value": 0.0
+  "value": 2.2310080528259277
  },
  {
   "id": "/amdcpu/0/voltage/3",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #2 VID",
   "kind": "voltage",
-  "value": 1.5499999523162842
+  "value": 0.6625000238418579
  },
  {
   "id": "/amdcpu/0/clock/3",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #3",
   "kind": "clock",
-  "value": null
+  "value": 3443.767822265625
  },
  {
   "id": "/amdcpu/0/factor/2",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #3",
   "kind": "factor",
-  "value": null
+  "value": 34.5
  },
  {
   "id": "/amdcpu/0/power/3",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #3 (SMU)",
   "kind": "power",
-  "value": 0.0
+  "value": 2.03926682472229
  },
  {
   "id": "/amdcpu/0/voltage/4",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #3 VID",
   "kind": "voltage",
-  "value": 1.5499999523162842
+  "value": 0.675000011920929
  },
  {
   "id": "/amdcpu/0/clock/4",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #4",
   "kind": "clock",
-  "value": null
+  "value": 1530.5634765625
  },
  {
   "id": "/amdcpu/0/factor/3",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #4",
   "kind": "factor",
-  "value": null
+  "value": 15.333333015441895
  },
  {
   "id": "/amdcpu/0/power/4",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #4 (SMU)",
   "kind": "power",
-  "value": 0.0
+  "value": 1.698224425315857
  },
  {
   "id": "/amdcpu/0/voltage/5",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #4 VID",
   "kind": "voltage",
-  "value": 1.5499999523162842
+  "value": 0.675000011920929
  },
  {
   "id": "/amdcpu/0/clock/5",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #5",
   "kind": "clock",
-  "value": null
+  "value": 1530.5634765625
  },
  {
   "id": "/amdcpu/0/factor/4",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #5",
   "kind": "factor",
-  "value": null
+  "value": 15.333333015441895
  },
  {
   "id": "/amdcpu/0/power/5",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #5 (SMU)",
   "kind": "power",
-  "value": 0.0
+  "value": 0.7965366840362549
  },
  {
   "id": "/amdcpu/0/voltage/6",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #5 VID",
   "kind": "voltage",
-  "value": 1.5499999523162842
+  "value": 0.675000011920929
  },
  {
   "id": "/amdcpu/0/clock/6",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #6",
   "kind": "clock",
-  "value": null
+  "value": 1530.5634765625
  },
  {
   "id": "/amdcpu/0/factor/5",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #6",
   "kind": "factor",
-  "value": null
+  "value": 15.333333015441895
  },
  {
   "id": "/amdcpu/0/power/6",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #6 (SMU)",
   "kind": "power",
-  "value": 0.0
+  "value": 0.36492669582366943
  },
  {
   "id": "/amdcpu/0/voltage/7",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #6 VID",
   "kind": "voltage",
-  "value": 1.5499999523162842
+  "value": 0.675000011920929
  },
  {
   "id": "/amdcpu/0/clock/7",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #7",
   "kind": "clock",
-  "value": null
+  "value": 1530.5634765625
  },
  {
   "id": "/amdcpu/0/factor/6",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #7",
   "kind": "factor",
-  "value": null
+  "value": 15.333333015441895
  },
  {
   "id": "/amdcpu/0/power/7",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #7 (SMU)",
   "kind": "power",
-  "value": 0.0
+  "value": 0.16671085357666016
  },
  {
   "id": "/amdcpu/0/voltage/8",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #7 VID",
   "kind": "voltage",
-  "value": 1.5499999523162842
+  "value": 0.675000011920929
  },
  {
   "id": "/amdcpu/0/clock/8",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #8",
   "kind": "clock",
-  "value": null
+  "value": 1530.5634765625
  },
  {
   "id": "/amdcpu/0/factor/7",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #8",
   "kind": "factor",
-  "value": null
+  "value": 15.333333015441895
  },
  {
   "id": "/amdcpu/0/power/8",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #8 (SMU)",
   "kind": "power",
-  "value": 0.0
+  "value": 0.036768779158592224
  },
  {
   "id": "/amdcpu/0/voltage/9",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core #8 VID",
   "kind": "voltage",
-  "value": 1.5499999523162842
+  "value": 0.675000011920929
  },
  {
   "id": "/amdcpu/0/temperature/2",
   "hardware": "AMD Ryzen 7 6800HS Creator Edition",
   "name": "Core (Tctl/Tdie)",
   "kind": "temperature",
-  "value": 0.0
+  "value": 65.00000762939453
+ },
+ {
+  "id": "/amdcpu/0/clock/0",
+  "hardware": "AMD Ryzen 7 6800HS Creator Edition",
+  "name": "Bus Speed",
+  "kind": "clock",
+  "value": 99.8193588256836
  },
  {
   "id": "/ram/data/0",
   "hardware": "Generic Memory",
   "name": "Memory Used",
   "kind": "data",
-  "value": 11.129989624023438
+  "value": 11.31005859375
  },
  {
   "id": "/ram/data/1",
   "hardware": "Generic Memory",
   "name": "Memory Available",
   "kind": "data",
-  "value": 2.5623397827148438
+  "value": 2.3822708129882812
  },
  {
   "id": "/ram/load/0",
   "hardware": "Generic Memory",
   "name": "Memory",
   "kind": "load",
-  "value": 81.28631591796875
+  "value": 82.60142517089844
  },
  {
   "id": "/ram/data/2",
   "hardware": "Generic Memory",
   "name": "Virtual Memory Used",
   "kind": "data",
-  "value": 24.29468536376953
+  "value": 23.84112548828125
  },
  {
   "id": "/ram/data/3",
   "hardware": "Generic Memory",
   "name": "Virtual Memory Available",
   "kind": "data",
-  "value": 3.8774871826171875
+  "value": 4.077220916748047
  },
  {
   "id": "/ram/load/1",
   "hardware": "Generic Memory",
   "name": "Virtual Memory",
   "kind": "load",
-  "value": 86.23646545410156
+  "value": 85.39590454101562
  },
  {
   "id": "/gpu-amd/0/smalldata/2",
@@ -431,28 +438,28 @@
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "D3D Dedicated Memory Free",
   "kind": "smalldata",
-  "value": 916.984375
+  "value": 847.734375
  },
  {
   "id": "/gpu-amd/0/smalldata/3",
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "D3D Dedicated Memory Used",
   "kind": "smalldata",
-  "value": 1104.8125
+  "value": 1174.0625
  },
  {
   "id": "/gpu-amd/0/smalldata/6",
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "D3D Shared Memory Used",
   "kind": "smalldata",
-  "value": 717.74609375
+  "value": 678.015625
  },
  {
   "id": "/gpu-amd/0/smalldata/7",
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "D3D Shared Memory Free",
   "kind": "smalldata",
-  "value": 6292.7265625
+  "value": 6332.45703125
  },
  {
   "id": "/gpu-amd/0/smalldata/8",
@@ -466,14 +473,14 @@
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "D3D 3D",
   "kind": "load",
-  "value": 8.769363403320312
+  "value": 6.16381311416626
  },
  {
   "id": "/gpu-amd/0/load/7",
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "D3D High Priority 3D",
   "kind": "load",
-  "value": 3.1993424892425537
+  "value": 0.0
  },
  {
   "id": "/gpu-amd/0/load/8",
@@ -536,14 +543,14 @@
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "D3D Video Codec 0",
   "kind": "load",
-  "value": 15.54504680633545
+  "value": 0.0
  },
  {
   "id": "/gpu-amd/0/load/6",
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "D3D Copy",
   "kind": "load",
-  "value": 0.016424674540758133
+  "value": 0.11285687237977982
  },
  {
   "id": "/gpu-amd/0/load/10",
@@ -564,14 +571,14 @@
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "GPU Memory Used",
   "kind": "smalldata",
-  "value": 1104.0
+  "value": 1174.0
  },
  {
   "id": "/gpu-amd/0/smalldata/1",
   "hardware": "AMD Radeon(TM) Graphics",
   "name": "GPU Memory Free",
   "kind": "smalldata",
-  "value": 944.0
+  "value": 874.0
  },
  {
   "id": "/gpu-nvidia/0/temperature/0",
@@ -704,7 +711,7 @@
   "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
   "name": "GPU Hot Spot",
   "kind": "temperature",
-  "value": 53.40625
+  "value": 63.59375
  },
  {
   "id": "/gpu-nvidia/0/smalldata/2",
@@ -739,21 +746,119 @@
   "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
   "name": "GPU Package",
   "kind": "power",
-  "value": 9.960000038146973
+  "value": 9.59000015258789
  },
  {
   "id": "/gpu-nvidia/0/throughput/0",
   "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
   "name": "GPU PCIe Rx",
   "kind": "throughput",
-  "value": 89088000.0
+  "value": 141312000.0
  },
  {
   "id": "/gpu-nvidia/0/throughput/1",
   "hardware": "NVIDIA GeForce RTX 3050 Laptop GPU",
   "name": "GPU PCIe Tx",
   "kind": "throughput",
-  "value": 10240000.0
+  "value": 8192000.0
+ },
+ {
+  "id": "/nvme/0/temperature/0",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Temperature",
+  "kind": "temperature",
+  "value": 44.0
+ },
+ {
+  "id": "/nvme/0/level/1",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Available Spare",
+  "kind": "level",
+  "value": 100.0
+ },
+ {
+  "id": "/nvme/0/level/2",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Available Spare Threshold",
+  "kind": "level",
+  "value": 10.0
+ },
+ {
+  "id": "/nvme/0/level/3",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Percentage Used",
+  "kind": "level",
+  "value": 10.0
+ },
+ {
+  "id": "/nvme/0/data/4",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Data Read",
+  "kind": "data",
+  "value": 54881.0
+ },
+ {
+  "id": "/nvme/0/data/5",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Data Written",
+  "kind": "data",
+  "value": 35118.0
+ },
+ {
+  "id": "/nvme/0/temperature/6",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Temperature 1",
+  "kind": "temperature",
+  "value": 44.0
+ },
+ {
+  "id": "/nvme/0/temperature/7",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Temperature 2",
+  "kind": "temperature",
+  "value": 44.0
+ },
+ {
+  "id": "/nvme/0/load/0",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Used Space",
+  "kind": "load",
+  "value": 92.43157958984375
+ },
+ {
+  "id": "/nvme/0/load/31",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Read Activity",
+  "kind": "load",
+  "value": 0.869113028049469
+ },
+ {
+  "id": "/nvme/0/load/32",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Write Activity",
+  "kind": "load",
+  "value": 1.9210447072982788
+ },
+ {
+  "id": "/nvme/0/load/33",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Total Activity",
+  "kind": "load",
+  "value": 5.008796215057373
+ },
+ {
+  "id": "/nvme/0/throughput/34",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Read Rate",
+  "kind": "throughput",
+  "value": 8136153.0
+ },
+ {
+  "id": "/nvme/0/throughput/35",
+  "hardware": "SAMSUNG MZVL2512HCJQ-00BL2",
+  "name": "Write Rate",
+  "kind": "throughput",
+  "value": 532194.25
  },
  {
   "id": "/battery/AP16L5J%00_6/energy/0",
@@ -781,21 +886,21 @@
   "hardware": "AP16L5J",
   "name": "Remaining Capacity",
   "kind": "energy",
-  "value": 47590.0
+  "value": 44540.0
  },
  {
   "id": "/battery/AP16L5J%00_6/level/0",
   "hardware": "AP16L5J",
   "name": "Charge Level",
   "kind": "level",
-  "value": 79.98319244384766
+  "value": 74.85713958740234
  },
  {
   "id": "/battery/AP16L5J%00_6/voltage/0",
   "hardware": "AP16L5J",
   "name": "Voltage",
   "kind": "voltage",
-  "value": 16.264999389648438
+  "value": 16.260000228881836
  },
  {
   "id": "/battery/AP16L5J%00_6/current/0",

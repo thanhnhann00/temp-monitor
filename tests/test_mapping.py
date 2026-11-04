@@ -28,9 +28,14 @@ def test_headline_from_fixture(readings):
     assert set(h) == {"cpu", "gpu0", "gpu1", "ssd"}
     assert 20 <= h["gpu0"] <= 110
     assert 20 <= h["gpu1"] <= 110
-    # cpu and ssd need admin; the provisional fixture was recorded without it
-    for key in ("cpu", "ssd"):
-        assert h[key] is None or 20 <= h[key] <= 110
+    # fixture recorded with admin rights on the IdeaPad 5 Pro 16ARH7
+    assert 20 <= h["cpu"] <= 110
+    assert 20 <= h["ssd"] <= 110
+
+
+def test_disk_view_from_fixture(readings):
+    v = mapping.disk_view(readings)
+    assert v["temp_c"] is not None and v["active_pct"] is not None
 
 
 def test_zero_temperature_is_missing(readings):
