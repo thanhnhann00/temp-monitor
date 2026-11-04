@@ -1,8 +1,10 @@
 """CPU, memory, disk and network usage from psutil."""
 from __future__ import annotations
 
+import ctypes
 import socket
 import time
+from ctypes import wintypes as w
 from typing import Callable
 
 import psutil
@@ -12,15 +14,46 @@ _PROC_CACHE_S = 5.0
 _proc_cache: tuple[float, int, int] | None = None
 
 
+class _PROCESSENTRY32W(ctypes.Structure):
+    _fields_ = [("dwSize", w.DWORD), ("cntUsage", w.DWORD), ("th32ProcessID", w.DWORD),
+                ("th32DefaultHeapID", ctypes.c_size_t), ("th32ModuleID", w.DWORD), ("cntThreads", w.DWORD),
+                ("th32ParentProcessID", w.DWORD), ("pcPriClassBase", w.LONG), ("dwFlags", w.DWORD),
+                ("szExeFile", w.WCHAR * 260)]
+
+
+_TH32CS_SNAPPROCESS = 0x2
+_INVALID_HANDLE = w.HANDLE(-1).value
+
+
+def _count_processes() -> tuple[int, int]:
+    """Process and thread totals from one Toolhelp32 snapshot (~15 ms).
+
+    psutil's per-process num_threads opens every process and cost ~8 s of CPU per scan here.
+    """
+    k = ctypes.WinDLL("kernel32", use_last_error=True)
+    k.CreateToolhelp32Snapshot.restype = w.HANDLE
+    snap = k.CreateToolhelp32Snapshot(_TH32CS_SNAPPROCESS, 0)
+    if not snap or snap == _INVALID_HANDLE:
+        return len(psutil.pids()), 0
+    try:
+        entry = _PROCESSENTRY32W()
+        entry.dwSize = ctypes.sizeof(entry)
+        procs = threads = 0
+        ok = k.Process32FirstW(snap, ctypes.byref(entry))
+        while ok:
+            procs += 1
+            threads += entry.cntThreads
+            ok = k.Process32NextW(snap, ctypes.byref(entry))
+        return procs, threads
+    finally:
+        k.CloseHandle(snap)
+
+
 def _process_counts() -> tuple[int, int]:
     global _proc_cache
     now = time.monotonic()
     if _proc_cache is None or now - _proc_cache[0] > _PROC_CACHE_S:
-        procs = threads = 0
-        for p in psutil.process_iter(["num_threads"]):
-            procs += 1
-            threads += p.info.get("num_threads") or 0
-        _proc_cache = (now, procs, threads)
+        _proc_cache = (now, *_count_processes())
     return _proc_cache[1], _proc_cache[2]
 
 

@@ -37,3 +37,16 @@ def test_memory_fields():
     m = memory()
     assert set(m) == {"used_gb", "total_gb", "available_gb", "percent", "pagefile_used_gb"}
     assert 0 < m["used_gb"] < m["total_gb"]
+
+
+def test_process_counts_are_cheap():
+    # psutil's per-process num_threads cost ~8 s of CPU per scan on Windows (420 processes),
+    # which kept Thermo near 90% of a core. Counting must stay well under 0.2 s of CPU.
+    import time
+
+    from thermo.sources import system
+
+    start = time.process_time()
+    procs, threads = system._count_processes()
+    assert time.process_time() - start < 0.2
+    assert procs > 10 and threads >= procs
